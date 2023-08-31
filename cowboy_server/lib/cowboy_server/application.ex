@@ -10,6 +10,8 @@ defmodule CowboyServer.Application do
     children = [
       # Starts a worker by calling: CowboyServer.Worker.start_link(arg)
       # {CowboyServer.Worker, arg}
+
+      {Task, fn -> CowboyServer.Server.start(5050) end}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
